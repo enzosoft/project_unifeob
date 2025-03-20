@@ -42,7 +42,7 @@ class CreateUserPage extends StatelessWidget {
               InputCreateUserWidget(
                   hint: 'E-mail', icon: Icons.email_outlined, obscure: false),
               InputCreateUserWidget(
-                  hint: 'CPF', icon: Icons.person_outline, obscure: false),
+                  hint: 'CPF', icon: Icons.card_membership_outlined, obscure: false),
               InputCreateUserWidget(
                   hint: 'Senha', icon: Icons.password_outlined, obscure: true),
               InputCreateUserWidget(

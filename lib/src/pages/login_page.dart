@@ -32,16 +32,16 @@ class LoginPage extends StatelessWidget {
                     ),
               ),
               const SizedBox(height: 30),
-              InputLoginWidget(
-                icon: Icons.person_2_outlined, 
-                hint: 'Usuário', 
-                obscure: false
-                ),
-              InputLoginWidget(
-                icon: Icons.lock_outline, 
-                hint: 'Password', 
-                obscure: true
-                ),
+              // InputLoginWidget(
+              //   icon: Icons.person_2_outlined, 
+              //   hint: 'Usuário', 
+              //   obscure: false
+              //   ),
+              // InputLoginWidget(
+              //   icon: Icons.lock_outline, 
+              //   hint: 'Password', 
+              //   obscure: true
+              //   ),
               const SizedBox(height: 30),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 15),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('/createuser');
+                  Navigator.of(context).pushNamed('/novousuario');
                 },
                 child: const Text(
                   'Criar Conta',

@@ -12,6 +12,7 @@ class CadUsuarioPage extends StatefulWidget {
 class _CadUsuarioPageState extends State<CadUsuarioPage> {
   final _formKey = GlobalKey<FormState>();
   final _nomeController = TextEditingController();
+  final _emailController = TextEditingController();
 
   void _cadastrar(){
     if (_formKey.currentState!.validate()){
@@ -76,6 +77,16 @@ class _CadUsuarioPageState extends State<CadUsuarioPage> {
                         validator: Validatorless.required(
                           'Campo Obrigatório'
                           ),
+                      ),
+                      const SizedBox(height: 10,),
+                      InputLoginWidget(
+                        controller: _emailController,
+                        icon: Icons.email_outlined, 
+                        hint: 'E-mail', 
+                        validator: Validatorless.multiple([
+                          Validatorless.required('Campo Obrigatório'),
+                          Validatorless.email('E-mail Inválido')
+                        ])
                       ),
                       const SizedBox(height: 10,),
                       ElevatedButton(

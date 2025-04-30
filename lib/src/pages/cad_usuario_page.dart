@@ -1,6 +1,11 @@
-import 'package:appfluxolivre/src/pages/home_page.dart';
-import 'package:appfluxolivre/src/widget/input_login_widget.dart';
+import 'package:app_fluxolivrep/src/models/user.dart';
+import 'package:app_fluxolivrep/src/pages/home_page.dart';
+import 'package:app_fluxolivrep/src/providers/user_register_provider.dart';
+import 'package:app_fluxolivrep/src/utils/show_erro_snackbar.dart';
+import 'package:app_fluxolivrep/src/utils/show_success_snackbar.dart';
+import 'package:app_fluxolivrep/src/widget/input_login_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:validatorless/validatorless.dart';
 
 class CadUsuarioPage extends StatefulWidget {
@@ -17,17 +22,33 @@ class _CadUsuarioPageState extends State<CadUsuarioPage> {
   final _senhaController = TextEditingController();
   final _confSenhaController = TextEditingController();
 
-  void _cadastrar() {
+  void _cadastrar() async {
     if (_formKey.currentState!.validate()) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage() ) 
+      final user = User(
+        name: _nomeController.text,
+        email: _emailController.text,
+        password: _senhaController.text,
       );
+      try {
+        await Provider.of<UserRegisterProvider>(
+          context,
+          listen: false,
+        ).resterUser(user);
+        if (mounted) {
+          showSuccessSnackBar(context, 'Usuário Cadastrado com Sucesso!');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        }
+      } catch (error) {
+       if(mounted) showErroSnackBar(context, error.toString());
+      }
     }
   }
 
   void _cancelar() {
-    Navigator.of(context).pushNamed('/');
+    Navigator.pop(context);
   }
 
   @override
@@ -36,7 +57,7 @@ class _CadUsuarioPageState extends State<CadUsuarioPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/login.png'),
+            image: AssetImage('assets/images/img_fundologin.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -125,22 +146,22 @@ class _CadUsuarioPageState extends State<CadUsuarioPage> {
                         children: [
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF4FF754),
+                              backgroundColor: const Color(0xFF90F74F),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(14),
                               ),
                             ),
                             onPressed: _cadastrar,
                             child: const Text(
-                              'Cadrastrar',
+                              'Cadastrar',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                                color: Color(0xFF000000),
                               ),
                             ),
                           ),
-                            ElevatedButton(
+                          ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFFFA271E),
                               shape: RoundedRectangleBorder(

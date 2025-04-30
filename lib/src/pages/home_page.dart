@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-
   const HomePage({super.key});
 
   @override
@@ -11,15 +10,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int count = 0;
 
-  void incremented(){
+  void incremented() {
     setState(() {
-       count ++;
+      count++;
     });
   }
 
-  void decrement(){
+  void decrement() {
     setState(() {
-       count --;
+      count--;
     });
   }
 
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               isFull ? 'Acesso Bloqueado' : 'Acesso Liberado',
               style: TextStyle(
-                color: isFull ? Color.fromARGB(255, 255, 0, 0) : Color(0xFFFFFFFF),
+                color: isFull ? Color(0xFFFF0000) : Color(0xFFFFFFFF),
                 fontSize: 40,
                 fontWeight: FontWeight.w500,
               ),
@@ -51,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               count.toString(),
               style: TextStyle(
-                color: count == 10 ? Color.fromARGB(255, 255, 0, 0) : Color(0xFFFFFFFF),
+                color: Color(0xFFFFFFFF),
                 fontSize: 60,
                 fontWeight: FontWeight.w500,
               ),
@@ -61,13 +60,14 @@ class _HomePageState extends State<HomePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: isEmpty ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
-                    fixedSize: const Size(110,75), 
+                    backgroundColor:
+                        isEmpty ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
+                    fixedSize: const Size(110, 75),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
-                    )
+                    ),
                   ),
-                  onPressed: isEmpty ? (){} : decrement, 
+                  onPressed: isEmpty ? () {} : decrement,
                   child: const Text(
                     'Sair',
                     style: TextStyle(
@@ -75,18 +75,19 @@ class _HomePageState extends State<HomePage> {
                       color: Color(0xFF031CF5),
                       fontWeight: FontWeight.w500,
                     ),
-                    ),
-                    ),
+                  ),
+                ),
                 const SizedBox(width: 40),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: isFull ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
-                    fixedSize: const Size(110,75),
+                    backgroundColor:
+                        isFull ? Color(0xAAAFAE24) : Color(0xFFAFAE24),
+                    fixedSize: const Size(110, 75),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
-                    )
+                    ),
                   ),
-                  onPressed: isFull ? (){} : incremented, 
+                  onPressed: isFull ? () {} : incremented,
                   child: const Text(
                     'Entrar',
                     style: TextStyle(
@@ -94,8 +95,8 @@ class _HomePageState extends State<HomePage> {
                       color: Color(0xFF031CF5),
                       fontWeight: FontWeight.w500,
                     ),
-                    ),
-                    ),
+                  ),
+                ),
               ],
             ),
           ],

@@ -7,7 +7,7 @@ class InputLoginWidget extends StatelessWidget {
   final TextInputType type;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-
+  
   const InputLoginWidget({
     required this.icon,
     required this.hint,
@@ -15,32 +15,25 @@ class InputLoginWidget extends StatelessWidget {
     this.obscure = false,
     this.type = TextInputType.text,
     this.validator,
-    super.key});
+    super.key,
+    });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-       icon: Icon(
-        icon, color: Color(0xFFFFFFFF),
-        ),
+        icon: Icon(icon, color: Color(0xFFFFFFFF)),
         hintText: hint,
-        hintStyle: TextStyle(
-        color: Color(0xFFFFFFFF),
-        ),
+        hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.pinkAccent
-            )
-            ) 
-            ),
-            style: TextStyle(
-              color: Color(0xFFFFFFFF),
-              ),
-              obscureText: obscure,
-              keyboardType: type,
-              validator: validator,
-            );
+          borderSide: BorderSide(color: Colors.pinkAccent),
+        ),
+      ),
+      style: TextStyle(color: Color(0xFFFFFFFF)),
+      obscureText: obscure,
+      keyboardType: type,
+      validator: validator,
+    );
   }
 }

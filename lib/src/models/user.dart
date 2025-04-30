@@ -8,11 +8,12 @@ class User {
     int? id,
     required String name,
     required String email,
-    required String password
-  }) :  _id = id, 
-        _name = name,
-        _email = email,
-        _password = password;
+    required String password,
+  }) : _id = id,
+       _name = name,
+       _email = email,
+       _password = password;
+
   int? get id => _id;
   String get name => _name;
   String get email => _email;
@@ -20,10 +21,10 @@ class User {
 
   Map<String, dynamic> toJson(){
     return{
-      'id': _id,
-      'name': _name,
-      'email': _email,
-      'password': _password
+      "id":_id,
+      "name": _name,
+      "email":_email,
+      "password":_password
     };
   }
 }

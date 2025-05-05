@@ -108,6 +108,17 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20),
                   ),
                 ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).pushNamed('/admin');
+                  },
+                  child: const Text('ACESSO RESTRITO',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20
+                  ),),
+                )
               ],
             ),
           ),

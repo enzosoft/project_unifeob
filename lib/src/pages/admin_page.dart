@@ -51,7 +51,7 @@ class AdminPage extends StatelessWidget {
                   AdminWidget(
                     title: 'Usuários',
                     imagePath: 'assets/images/user_admin.png',
-                    rota: '', 
+                    rota: '/users', 
                   ),
                   AdminWidget(
                     title: 'Relatórios',
